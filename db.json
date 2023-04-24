@@ -1,8 +1,18 @@
 {
-	"users": [
-		{ "id": 1, "name": "John Doe" },
-		{ "id": 2, "name": "Jane Doe" }
-	],
-	"albums": [],
-	"photos": []
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe"
+    },
+    {
+      "name": "Hannah Frami",
+      "id": 3
+    }
+  ],
+  "albums": [],
+  "photos": []
 }

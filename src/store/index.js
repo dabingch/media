@@ -8,4 +8,6 @@ export const store = configureStore({
 })
 
 // Export from index.js and fetchUsers.js
+// so that we can access from store
 export * from './thunks/fetchUsers'
+export * from './thunks/addUser'
