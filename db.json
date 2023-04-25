@@ -1,60 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Doe"
+      "name": "Jackie Goldner",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Jane Doe"
+      "name": "Daisy Zemlak",
+      "id": 2
     },
     {
-      "name": "Hannah Frami",
+      "name": "Randall Becker",
       "id": 3
     },
     {
-      "name": "Miss Leo Grady",
+      "name": "Agnes Schultz",
       "id": 4
     },
     {
-      "name": "Barry Schowalter",
+      "name": "Miss Pete Bechtelar",
       "id": 5
-    },
-    {
-      "name": "Kari Sporer",
-      "id": 6
-    },
-    {
-      "name": "Salvatore Balistreri",
-      "id": 7
-    },
-    {
-      "name": "Kevin Walker V",
-      "id": 8
-    },
-    {
-      "name": "Tiffany Feil",
-      "id": 9
-    },
-    {
-      "name": "Mr. Dustin Gottlieb",
-      "id": 10
-    },
-    {
-      "name": "Wendell Senger",
-      "id": 11
-    },
-    {
-      "name": "Audrey Block",
-      "id": 12
-    },
-    {
-      "name": "Kellie Kassulke",
-      "id": 13
-    },
-    {
-      "name": "Alyssa Franey",
-      "id": 14
     }
   ],
   "albums": [],
