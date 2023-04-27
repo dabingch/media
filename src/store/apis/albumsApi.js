@@ -10,6 +10,11 @@ const albumsApi = createApi({
 		return {
 			// Give a simple name and define query or mutation
 			fetchAlbums: builder.query({
+				// * Instead of provide array to hardcode tags, we return a dynamic function
+				// * user is a arg to pass to the useFetch function
+				providesTags: (result, error, user) => {
+					return [{ type: 'Album', id: user.id }]
+				},
 				// user is the argument to pass to the 'query' function
 				query: (user) => {
 					return {
@@ -24,6 +29,10 @@ const albumsApi = createApi({
 				},
 			}),
 			addAlbum: builder.mutation({
+				// * Once call this mutation, useFetchAlbumsQuery will be ran again
+				invalidatesTags: (result, error, user) => {
+					return [{ type: 'Album', id: user.id }]
+				},
 				query: (user) => {
 					return {
 						url: '/albums',

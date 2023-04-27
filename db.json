@@ -1,32 +1,42 @@
 {
-	"users": [
-		{
-			"name": "Jackie Goldner",
-			"id": 1
-		},
-		{
-			"name": "Daisy Zemlak",
-			"id": 2
-		},
-		{
-			"name": "Randall Becker",
-			"id": 3
-		},
-		{
-			"name": "Agnes Schultz",
-			"id": 4
-		},
-		{
-			"name": "Miss Pete Bechtelar",
-			"id": 5
-		}
-	],
-	"albums": [
-		{
-			"id": 10,
-			"title": "My Album",
-			"userId": 1
-		}
-	],
-	"photos": []
+  "users": [
+    {
+      "name": "Jackie Goldner",
+      "id": 1
+    },
+    {
+      "name": "Daisy Zemlak",
+      "id": 2
+    },
+    {
+      "name": "Randall Becker",
+      "id": 3
+    },
+    {
+      "name": "Agnes Schultz",
+      "id": 4
+    },
+    {
+      "name": "Miss Pete Bechtelar",
+      "id": 5
+    }
+  ],
+  "albums": [
+    {
+      "id": 10,
+      "title": "My Album",
+      "userId": 1
+    },
+    {
+      "userId": 1,
+      "title": "Sleek Frozen Shoes",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "title": "Incredible Granite Keyboard",
+      "id": 12
+    }
+  ],
+  "photos": []
 }
