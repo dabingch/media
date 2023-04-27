@@ -24,7 +24,14 @@ const albumsApi = createApi({
 				// * Instead of provide array to hardcode tags, we return a dynamic function
 				// * user is a arg to pass to the useFetch function
 				providesTags: (result, error, user) => {
-					return [{ type: 'Album', id: user.id }]
+					// return [{ type: 'Album', id: user.id }]
+					// * Clever tags system
+					const tags = result.map((album) => {
+						return { type: 'Album', id: album.id }
+					})
+					tags.push({ type: 'UsersAlbums', id: user.id })
+
+					return tags
 				},
 				// user is the argument to pass to the 'query' function
 				query: (user) => {
@@ -42,7 +49,8 @@ const albumsApi = createApi({
 			addAlbum: builder.mutation({
 				// * Once call this mutation, useFetchAlbumsQuery will be ran again
 				invalidatesTags: (result, error, user) => {
-					return [{ type: 'Album', id: user.id }]
+					// return [{ type: 'Album', id: user.id }]
+					return [{ type: 'UsersAlbums', id: user.id }]
 				},
 				query: (user) => {
 					return {
@@ -55,9 +63,26 @@ const albumsApi = createApi({
 					}
 				},
 			}),
+			removeAlbum: builder.mutation({
+				invalidatesTags: (result, error, album) => {
+					// * Just because album provides a userId
+					// return [{ type: 'Album', id: album.userId }]
+					return [{ type: 'Album', id: album.id }]
+				},
+				query: (album) => {
+					return {
+						url: `/albums/${album.id}`,
+						method: 'DELETE',
+					}
+				},
+			}),
 		}
 	},
 })
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi
+export const {
+	useFetchAlbumsQuery,
+	useAddAlbumMutation,
+	useRemoveAlbumMutation,
+} = albumsApi
 export { albumsApi }
