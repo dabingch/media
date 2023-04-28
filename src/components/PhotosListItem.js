@@ -1,7 +1,9 @@
-import React from 'react'
-
-function PhotosListItem() {
-	return <div>PhotosListItem</div>
+function PhotosListItem({ photo }) {
+	return (
+		<div>
+			<img src={photo.url} alt='random pic' className='h-20 w-20' />
+		</div>
+	)
 }
 
 export default PhotosListItem
