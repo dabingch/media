@@ -4,7 +4,7 @@ import { GoTrashcan } from 'react-icons/go'
 function PhotosListItem({ photo }) {
 	const [removePhoto] = useRemovePhotoMutation()
 
-	const handleRemovePhoto = (photo) => {
+	const handleRemovePhoto = () => {
 		removePhoto(photo)
 	}
 
