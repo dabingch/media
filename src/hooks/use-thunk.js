@@ -10,7 +10,7 @@ export function useThunk(thunk) {
 		(arg) => {
 			setIsLoading(true)
 			dispatch(thunk(arg))
-				.unwrap()
+				.unwrap() // unwrap the promise returned by the thunk
 				.catch((err) => setError(err))
 				.finally(() => setIsLoading(false))
 		},

@@ -11,6 +11,7 @@ const albumsApi = createApi({
 	reducerPath: 'albums', // Anything you want
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'http://localhost:3005',
+		// Do something before request in fetchFn
 		fetchFn: async (...args) => {
 			// Remove for production
 			await pause(1000)
@@ -21,14 +22,16 @@ const albumsApi = createApi({
 		return {
 			// Give a simple name and define query or mutation
 			fetchAlbums: builder.query({
-				// * Instead of provide array to hardcode tags, we return a dynamic function
-				// * user is a arg to pass to the useFetch function
+				// * Instead of provide array to hardcode tags,
+				// * we return a dynamic function
+				// * user is a arg to pass to the useFetchAllAlbums function
 				providesTags: (result, error, user) => {
 					// return [{ type: 'Album', id: user.id }]
-					// * Clever tags system
+					// * tag for remove album mutation
 					const tags = result.map((album) => {
 						return { type: 'Album', id: album.id }
 					})
+					// * tag for add album mutation
 					tags.push({ type: 'UsersAlbums', id: user.id })
 
 					return tags
@@ -47,7 +50,7 @@ const albumsApi = createApi({
 				},
 			}),
 			addAlbum: builder.mutation({
-				// * Once call this mutation, useFetchAlbumsQuery will be ran again
+				// * Once call this mutation, useFetchAlbumsQuery will be run again
 				invalidatesTags: (result, error, user) => {
 					// return [{ type: 'Album', id: user.id }]
 					return [{ type: 'UsersAlbums', id: user.id }]

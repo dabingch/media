@@ -7,7 +7,7 @@ import { photosApi } from './apis/photosApi'
 
 export const store = configureStore({
 	reducer: {
-		users: usersReducer, // async thunk
+		users: usersReducer,
 		// RTK query
 		[albumsApi.reducerPath]: albumsApi.reducer, // key is the reducerPath
 		[photosApi.reducerPath]: photosApi.reducer,
